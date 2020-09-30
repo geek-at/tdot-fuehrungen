@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Christian Haschek - HASCHEK SOLUTIONS">
+    <meta name="generator" content="My hands ;D">
+    <title>Tag der offenen Tür</title>
+
+    <!-- CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+</head>
+
+<body>
+
+    <div class="jumbotron" id="jumbo">
+        <div class="container">
+            <h1 class="text-center"><i class="fas fa-graduation-cap"></i> </h1>
+        </div>
+    </div>
+
+    <premain class="container-fluid"></premain>
+
+    <div id="logoutcontainer" class="container d-none">
+        <button class="btn btn-danger" onClick="logout();"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        <button class="btn btn-info" id="btn-edituserinfo"><i class="fas fa-user"></i> Daten bearbeiten</button>
+    </div>
+    
+    <main role="main" class="container-fluid"><div class="text-center"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div></main>
+
+    <footer class="page-footer text-center footer-copyright container" style="margin-top:80px;">
+        <hr />
+        <a href="https://haschek.solutions"><img src="/imgs/hs-logo.svg" alt="Haschek Solutions" height="50"></a><br>
+        <a type="a" href="#" onClick="$('#datenschutzModal').modal('show')">
+            Datenschutz
+        </a>
+    </footer>
+
+    <div class="modal fade" id="datenschutzModal" tabindex="-1" role="dialog" aria-labelledby="datenschutzModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="datenschutzModalTitle">Datenschutz</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Für die Dauer der Anmeldung erfassen wir folgende Daten von Ihnen:
+                    <ul class="list">
+                        <li>Name</li>
+                        <li>Email</li>
+                        <li>Telefonnummer</li>
+                        <li>IP Adresse</li>
+                        <li>Firebase UID</li>
+                    </ul>
+
+                    <ul class="list-unstyled">
+                        <li><i class="far fa-check-square text-success"></i> Ihre Daten werden nach Ablauf des
+                            Tag der offenen Tür gelöscht</li>
+                        <li><i class="far fa-check-square text-success"></i> Ihre Telefonnummer oder Email Adresse wird
+                            durch Firebase überprüft und auf unserem Server verarbeitet</li>
+                        <li><i class="far fa-check-square text-success"></i> Wir verwenden keine Tracking
+                            Technologien</li>
+                        <li><i class="far fa-check-square text-success"></i> Unsere Server werden in Österreich <img
+                                height="15px" src="/imgs/at.svg" /> betrieben</li>
+                        <li><i class="far fa-check-square text-success"></i> Ihre Daten verlassen den EU Raum nicht</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth__de.js"></script>
+    <script src="/js/signals.min.js"></script>
+    <script src="/js/crossroads.min.js"></script>
+    <script src="/js/handlebars.min-v4.7.6.js"></script>
+    <script src="/js/moment-with-locales.min.js"></script>
+    <script src="/js/tdot.js"></script>
+    <script src="/js/buttonhandler.js"></script>
+</body>
+
+</html>

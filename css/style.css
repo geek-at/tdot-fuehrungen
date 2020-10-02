@@ -13,6 +13,23 @@
     }
 }
 
+@media print {
+  newpage {page-break-after: always;}
+  .email {display:none;}
+  #main {display:none;}
+  .timeselect-card {display:none;}
+  .card-img-top {display:none;}
+  button {display:none;}
+  .btn {display: none;}
+  .card-title {font-size:40px;}
+  .card-text {font-size:40px;}
+  .card {width: 50%;}
+}
+
+.card {
+  width: 18rem;
+}
+
 body {
   /*padding-top: 2rem;*/
   padding-bottom: 2rem;
@@ -84,14 +101,33 @@ body {
   }
 }
 
-.time{
-  z-index:9;
-  position:relative;
+.time
+{
+  cursor: pointer; cursor: hand;
 }
 
-.progress {
-  overflow-y: hidden; height: 40px; padding: 0; border-radius: 0;;
+.time:hover
+{
+    background-color: #85b6e7;
 }
-.progress-bar {
-  height: 40px; overflow: visible; background-color: rgb(255, 115, 115); font-size: 1.3em; text-align: left; padding-left: 10px; border-radius: 0;color:#333 
+
+.timeslottaken
+{
+    color: #eee;
+    background-color: #fd6978;
+    border-color: #f5c6cb;
+    cursor: not-allowed;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+}
+
+.timeslotfree
+{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
 }

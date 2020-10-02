@@ -1,21 +1,22 @@
 <div class="container">
     <div class="d-flex align-content-start flex-wrap">
+        
         <div class="p-2">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <img class="card-img-top" src="/imgs/card-h.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Ihr Termin</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <button type="button" class="btn btn-info" id="printbutton" onclick="window.print();"><i class="fas fa-print"></i></button>
+                    <p class="card-text" id="userappointment"></p>
+                    <button type="button" class="btn btn-info d-none" id="printbutton" onclick="window.print();"><i class="fas fa-print"></i></button>
+                    <button class="btn btn-danger d-none" id="btn-delappointment"><i class="fas fa-trash-alt"></i> Termin löschen</button>
                 </div>
             </div>
         </div>
 
         {{#each TIMESLOTS}}
 
-        <div class="p-2">
-            <div class="card" style="width: 18rem;">
+        <div class="p-2 timeselect-card">
+            <div class="card">
                 <img class="card-img-top" src="/imgs/card-h.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{this.tag}}</h5>
@@ -27,11 +28,11 @@
                 </div>
 
                 {{#each this.timeslots}}
-                    <li id="time-{{@../key}}-{{@key}}" class="time list-group-item">
+                    <li day="{{@../key}}" timeslot="{{this}}" id="time-{{@../key}}-{{this}}" class="time list-group-item">
 
                         <div class="d-flex justify-content-between">
                             <div><i class="fas fa-clock"></i> {{this}}</div>
-                            <div id="{{@key}}_free">2/3 Frei</div>
+                            <div id="time-{{@../key}}-{{this}}-free"></div>
                         </div>
 
                     </li>
@@ -44,3 +45,5 @@
 
     </div>
 </div>
+
+<script>checkTimeslots();</script>

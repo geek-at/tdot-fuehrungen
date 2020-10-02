@@ -1,7 +1,45 @@
 
+
+$(document).on('click', '#btn-delappointment', function(event){ 
+    event.preventDefault();
+    postData('/api/api.php?url=/api/deleteappointment', {}).then(data => {
+        if(data.code==0)
+        {
+            alert("Ihr Termin wurde erfolgreich gelöscht");
+            checkTimeslots();
+        }
+        else
+        {
+            alert("Fehler: "+data.reason)
+        }
+    });
+});
+
+$(document).on('click', '.time', function(event){ 
+    event.preventDefault();
+    var day = $(this).attr('day');
+    var timeslot = $(this).attr('timeslot');
+
+    //$(this).addClass("timeslottaken");
+    
+    postData('/api/api.php?url=/api/choosetimeslot/'+day+"/"+timeslot, {}).then(data => {
+        if(data.code==0)
+        {
+            checkTimeslots();
+        }
+        else
+        {
+            alert("Fehler: "+data.reason)
+        }
+    });
+    
+});
+
+
 $(document).on('click', '#btn-edituserinfo', function(event){ 
+    event.preventDefault();
     $.ajax({
-        url: '/views/missingdata.hbs',
+        url: '/views/userinfo.hbs',
         cache: false,
         success: function (data) {
             template = Handlebars.compile(data);

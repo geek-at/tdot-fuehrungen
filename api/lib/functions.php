@@ -18,22 +18,26 @@ function firebasecheck($idTokenString)
 
         try {
             $phone = $verifiedIdToken->getClaim('phone_number');
+            if(fieldExistsInUser('phone',$phone))
+                $uid = fieldExistsInUser('phone',$phone);
         } catch (Throwable $e) {
             $phone = false;
         }
 
         try {
             $email = $verifiedIdToken->getClaim('email');
+            if(fieldExistsInUser('email',$email))
+                $uid = fieldExistsInUser('email',$email);
         } catch (Throwable $e) {
             $email = false;
         }
 
         $redis = connectRedis();
-        $redis->set(REDIS_PRESTRING.":$uid:exists",true);
+        $redis->set(REDIS_PRESTRING.":users:$uid:exists",true);
         if($email)
-            $redis->set(REDIS_PRESTRING.":$uid:email",$email);
+            $redis->set(REDIS_PRESTRING.":users:$uid:email",$email);
         if($phone)
-            $redis->set(REDIS_PRESTRING.":$uid:phone",$phone);
+            $redis->set(REDIS_PRESTRING.":users:$uid:phone",$phone);
 
         $ret = array('code' => 0, 'data'=>array(
             'fields'=>getUserFields($uid),
@@ -52,7 +56,7 @@ function getUserFields($user)
     $o = array();
     foreach($f as $key=>$fd)
     {
-        $o[$key] = $redis->get(REDIS_PRESTRING.":$user:$key");
+        $o[$key] = $redis->get(REDIS_PRESTRING.":users:$user:$key");
     }
 
     return $o;
@@ -93,4 +97,26 @@ function getCustomTimeslots($from,$to)
     }
 
     return $timeslots;
+}
+
+function fieldExistsInUser($field,$value)
+{
+    $r = connectRedis();
+    $data = $r->keys(REDIS_PRESTRING.':users:*');
+
+    foreach($data as $key)
+    {
+        $parts = explode(':',$key);
+        $user = $parts[3];
+        if($parts[4]==$field && $r->get(REDIS_PRESTRING.":users:$user:$field")==$value)
+            return $user;
+    }
+    return false;
+}
+
+function addToLog($data)
+{
+    $fp = fopen(ROOT.DS.'../log/log.txt','a');
+    fwrite($fp,"[".SCHOOLNAME."] [".date("d.m H:i")."] ".$data."\n");
+    fclose($fp);
 }

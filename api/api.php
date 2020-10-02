@@ -24,26 +24,110 @@ ini_set('display_errors', 'Off');
 
 $r = connectRedis();
 
-$url = explode('/', ltrim(parse_url($_GET['url'], PHP_URL_PATH), '/'));
+$url = explode('/', ltrim($_GET['url'], '/'));
 array_shift($url);
 
 $token = $_SERVER['HTTP_FIREBASE_TOKEN']; // can be firebase token or firebase user id!
 
 switch ($url[0]) {
+
+    case 'deleteappointment':
+        if (!$token || !$r->get(REDIS_PRESTRING.":users:$token:exists"))
+            $ret = array('code' => -1, 'reason' => 'Not logged in');
+        else
+        {
+            $appointment = $r->get(REDIS_PRESTRING.":users:$user:appointment");
+            if($appointment)
+            {
+                $daytime = str_replace(';',':',$appointment);
+                $r->decr(REDIS_PRESTRING.":timeslots:$daytime");
+                $r->del(REDIS_PRESTRING.":users:$user:appointment");
+            }
+            
+            addToLog("[$token] Deleted their appointment");
+            $ret = array('code' => 0);
+        }
+
+    break;
+
+    case 'choosetimeslot':
+        if (!$token || !$r->get(REDIS_PRESTRING.":users:$token:exists"))
+            $ret = array('code' => -1, 'reason' => 'Not logged in');
+        else
+        {
+            $day = $url[1];
+            $timeslot = $url[2];
+            $dd = getDayData();
+
+            if($r->get(REDIS_PRESTRING.":users:$user:appointment"))
+            {
+                addToLog("[$token] Tried to register day $day at $timeslot but they already had an appointment");
+                $ret = array('code' => -1, 'reason' => 'Sie haben bereits einen Termin gebucht! Wenn sie ihn ändern möchten, löschen Sie zunächst den bestehenden Termin');
+            }
+            else if(in_array($timeslot,$dd[$day]['timeslots']))
+            {
+                $reg = $r->get(REDIS_PRESTRING.":timeslots:$day:$timeslot");
+                if($reg >=8)
+                {
+                    addToLog("[$token] Tried to register day $day at $timeslot but this timeslot is already full");
+                    $ret = array('code' => -1, 'reason' => 'Dieser Termin ist leider bereits ausgebucht');
+                }
+                else
+                {
+                    $r->set(REDIS_PRESTRING.":users:$user:appointment","$day;$timeslot");
+                    $r->incr(REDIS_PRESTRING.":timeslots:$day:$timeslot");
+                    addToLog("[$token] Successfully chose $day at $timeslot");
+                    $ret = array('code' => 0, 'data' => array(
+                        'chosentimeslot' => array('day'=>$day,'time'=>$timeslot)
+                    ));
+                }
+            }
+            else
+            {
+                $ret = array('code' => -1, 'reason' => 'Ungültige Zeit ausgewählt');
+            }
+        }
+    break;
+
+    case 'gettimeslotdata':
+        if (!$token || !$r->get(REDIS_PRESTRING.":users:$token:exists"))
+            $ret = array('code' => -1, 'reason' => 'Not logged in');
+        else
+        {
+            $o = array();
+            $dd = getDayData();
+            foreach($dd as $day=>$data)
+            {
+                $slots = $data['timeslots'];
+                foreach($slots as $time)
+                {
+                    $exists = $r->get(REDIS_PRESTRING.":timeslots:$day:$time");
+                    $o[$day][$time] = $exists;
+                }
+            }
+
+            $ret = array('code' => 0, 'data' => array(
+                'timeslotdata' => $o,
+                'userappointment' => $r->get(REDIS_PRESTRING.":users:$user:appointment")
+            ));
+        }
+    break;
+
     case 'saveuserinfo':
         if (!$token)
             $ret = array('code' => -1, 'reason' => 'Not logged in');
         else
         {
-            if($r->get(REDIS_PRESTRING.":$token:exists"))
+            if($r->get(REDIS_PRESTRING.":users:$token:exists"))
             {
                 $data = json_decode(file_get_contents("php://input"),true);
                 $fields = getFields();
 
                 foreach($fields as $field => $fd)
                 {
-                    $r->set(REDIS_PRESTRING.":$token:$field",$data['fields'][$field]);
+                    $r->set(REDIS_PRESTRING.":users:$token:$field",$data['fields'][$field]);
                 }
+                addToLog("[$token] Changed their settings");
                 $ret = array('code' => 0,'fields'=>getUserFields($token));
             }
             else
@@ -91,9 +175,9 @@ switch ($url[0]) {
         break;
 
     default:
-        $ret = array('code' => -1, 'reason' => 'Not implemented');
+        $ret = array('code' => -1, 'reason' => 'Not implemented', 'url'=>$url);
 }
 
 
 header('Content-Type: application/json');
-echo json_encode($ret);
+echo json_encode($ret, JSON_FORCE_OBJECT);

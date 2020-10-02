@@ -1,6 +1,7 @@
 var token = false;
 var pageinfo = false;
 var userinfo = false;
+var timer;
 
 $(document).ready(function () {
     loadPageInfo();
@@ -43,11 +44,16 @@ function loadHBS(url,rendertoelement,viewdata)
 
 function loadUI(o)
 {
+    clearInterval(timer);
     userinfo = o
     if(o.email && o.phone && o.person1)
     {
+        timer = setInterval(function () {
+            checkTimeslots();
+        }, 10000);
+
         $.ajax({
-            url: '/views/afterlogin.hbs',
+            url: '/views/timeselection.hbs',
             cache: false,
             success: function (data) {
                 template = Handlebars.compile(data);
@@ -58,7 +64,7 @@ function loadUI(o)
     else
     {
         $.ajax({
-            url: '/views/missingdata.hbs',
+            url: '/views/userinfo.hbs',
             cache: false,
             success: function (data) {
                 template = Handlebars.compile(data);
@@ -69,24 +75,74 @@ function loadUI(o)
                         pageinfo.USER_FIELDS[key]['value']=o[key]
                 }
 
-
-
                 $("main").html(template(pageinfo.USER_FIELDS));
             }
         });
     }
 }
 
+function checkTimeslots()
+{
+    postData('/api/api.php?url=/api/gettimeslotdata', {})
+    .then(result => {
+        if(result.code==0)
+        {
+            //user appointment rendering
+            if(result.data.userappointment)
+            {
+                var parts = result.data.userappointment.split(";");
+                var app_day = pageinfo.TIMESLOTS[parts[0]].tag;
+                var app_time = parts[1];
+                $("#userappointment").html(app_day+" um "+app_time);
+                $("#printbutton").removeClass("d-none");
+                $("#btn-delappointment").removeClass("d-none");
+            }
+            else
+            {
+                $("#userappointment").html("Noch kein Termin gebucht");
+                $("#printbutton").addClass("d-none");
+                $("#btn-delappointment").addClass("d-none");
+            }
+            
+
+            //timeslot rendering
+            for(day in result.data.timeslotdata)
+            {
+                var days = result.data.timeslotdata[day];
+                for(ttime in days)
+                {
+                    //how many slots are taken
+                    var value = (days[ttime]?days[ttime]:0)
+                    $(document.getElementById("time-"+day+"-"+ttime)).removeClass('timeslotfree');
+                    $(document.getElementById("time-"+day+"-"+ttime)).removeClass('timeslottaken');
+
+                    if(value < pageinfo.EVENT_MAXRES_PER_TIMESLOT)
+                        $(document.getElementById("time-"+day+"-"+ttime)).addClass('timeslotfree');
+                    else
+                        $(document.getElementById("time-"+day+"-"+ttime)).addClass('timeslottaken');
+
+                    //set text how many are slots are free
+                    $(document.getElementById("time-"+day+"-"+ttime+"-free")).text(value+" / "+pageinfo.EVENT_MAXRES_PER_TIMESLOT);
+                }
+            }
+        }
+        else
+        {
+
+        }
+    });
+}
+
 function login_firebase(firebaseConfig) {
     firebase.initializeApp(firebaseConfig);
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            $("#logoutcontainer").removeClass("d-none");
             firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
                 token = idToken
 
                 postData('/api/api.php?url=/api/getuserinfo', {})
                     .then(data => {
+                        $("#logoutcontainer").removeClass("d-none");
                         console.log("userdata",data);
                         loadUI(data.data.fields);
                         token = data.data.id

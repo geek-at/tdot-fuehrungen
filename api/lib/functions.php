@@ -19,7 +19,13 @@ function firebasecheck($idTokenString)
         try {
             $phone = $verifiedIdToken->getClaim('phone_number');
             if(fieldExistsInUser('phone',$phone))
+            {
+                $ouid = $uid;
                 $uid = fieldExistsInUser('phone',$phone);
+                addToLog("[$ouid] has an existing phone number and is now known as $uid");
+            }
+            else
+                addToLog("[$uid] Logged in with the phone number $phone");
         } catch (Throwable $e) {
             $phone = false;
         }
@@ -27,7 +33,13 @@ function firebasecheck($idTokenString)
         try {
             $email = $verifiedIdToken->getClaim('email');
             if(fieldExistsInUser('email',$email))
+            {
+                $ouid = $uid;
                 $uid = fieldExistsInUser('email',$email);
+                addToLog("[$ouid] has an existing email and is now known as $uid");
+            }
+            else
+                addToLog("[$uid] Logged in with the email $email");
         } catch (Throwable $e) {
             $email = false;
         }

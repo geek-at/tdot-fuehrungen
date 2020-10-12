@@ -2,7 +2,7 @@
 // basic path definitions
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(__FILE__));
-define('DOMAIN', $_SERVER['SERVER_NAME']);
+define('DOMAIN', $_SERVER['HTTP_HOST']);
 
 //load composer stuff
 require ROOT . '/lib/vendor/autoload.php';

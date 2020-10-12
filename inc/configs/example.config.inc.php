@@ -16,7 +16,6 @@ define('SCHOOL_INFOTEXT','');
 define('SCHOOL_CONTACT','');
 define('PAGE_URL','');
 define('PAGE_HEADER_IMG','');
-define('EVENT_DATE','');
 define('APPOINTMENT_MINUTES',15);
 define('EVENT_MAXRES_PER_TIMESLOT',8);
 define('PLATFORM_ONLINE_FROM',strtotime("29-09-2020 17:58"));

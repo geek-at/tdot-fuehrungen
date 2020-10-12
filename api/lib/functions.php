@@ -103,8 +103,12 @@ function getCustomTimeslots($from,$to)
     while($time<$end)
     {
         $hour = date("H:i",$time);
+        $min = date("i",$time);
+
+        
         //echo "$hour<br/>";
-        $time+=(APPOINTMENT_MINUTES*60); //+5min
+        $time+=(APPOINTMENT_MINUTES*60);
+        if($min && defined('APPOINTMENT_TOMINUTE') && is_numeric(APPOINTMENT_TOMINUTE) && $min > APPOINTMENT_TOMINUTE) continue;
         $timeslots[] = $hour;
     }
 

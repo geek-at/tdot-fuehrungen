@@ -126,6 +126,7 @@ function checkTimeslots()
                         $(document.getElementById("time-"+day+"-"+ttime)).addClass('timeslottaken');
 
                     //set text how many are slots are free
+                    if(pageinfo.EVENT_MAXRES_PER_TIMESLOT > 1)
                     $(document.getElementById("time-"+day+"-"+ttime+"-free")).text(value+" / "+pageinfo.EVENT_MAXRES_PER_TIMESLOT);
                 }
             }

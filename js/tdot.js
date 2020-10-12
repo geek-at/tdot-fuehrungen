@@ -27,6 +27,10 @@ function loadPageInfo() {
                     $("main").html("<h2 class='text-center'>Die Plattform ist geschlossen</h2>")
                 
             }
+            else
+            {
+                $("main").html("<h2 class='text-center'>Für diese Domain ist keine Konfiguration bekannt</h2>")
+            }
         });
 }
 

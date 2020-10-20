@@ -102,6 +102,7 @@ function checkTimeslots()
                 $("#btn-delappointment").removeClass("d-none");
                 $("#userappointmentwrapper").css('box-shadow', '0px 0px 25px #19ff00');
                 $("#userappointmenttitle").text("Ihr Termin ist fixiert")
+                $(".timeselect-card").fadeOut();
             }
             else
             {
@@ -110,6 +111,7 @@ function checkTimeslots()
                 $("#btn-delappointment").addClass("d-none");
                 $("#userappointmentwrapper").css('box-shadow', 'none');
                 $("#userappointmenttitle").text("Wählen Sie einen Termin")
+                $(".timeselect-card").fadeIn();
             }
             
 

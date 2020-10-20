@@ -2,17 +2,19 @@
 
 $(document).on('click', '#btn-delappointment', function(event){ 
     event.preventDefault();
-    postData('/api/api.php?url=/api/deleteappointment', {}).then(data => {
-        if(data.code==0)
-        {
-            alert("Ihr Termin wurde erfolgreich gelöscht");
-            checkTimeslots();
-        }
-        else
-        {
-            alert("Fehler: "+data.reason)
-        }
-    });
+    if(confirm('Wollen Sie Ihren Termin wirklich löschen?'))
+    {
+        postData('/api/api.php?url=/api/deleteappointment', {}).then(data => {
+            if(data.code==0)
+            {
+                checkTimeslots();
+            }
+            else
+            {
+                alert("Fehler: "+data.reason)
+            }
+        });
+    }
 });
 
 $(document).on('click', '.time', function(event){ 
@@ -26,12 +28,6 @@ $(document).on('click', '.time', function(event){
         if(data.code==0)
         {
             checkTimeslots();
-            goToByScroll("#userappointmentwrapper");
-            const element = document.querySelector('#userappointmentwrapper');
-            element.classList.add('animate__animated', 'animate__flash');
-            element.addEventListener('animationend', () => {
-                
-            });
         }
         else
         {

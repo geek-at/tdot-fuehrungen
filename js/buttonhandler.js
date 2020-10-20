@@ -26,6 +26,12 @@ $(document).on('click', '.time', function(event){
         if(data.code==0)
         {
             checkTimeslots();
+            goToByScroll("#userappointmentwrapper");
+            const element = document.querySelector('#userappointmentwrapper');
+            element.classList.add('animate__animated', 'animate__flash');
+            element.addEventListener('animationend', () => {
+                
+            });
         }
         else
         {

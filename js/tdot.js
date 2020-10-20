@@ -100,12 +100,14 @@ function checkTimeslots()
                 $("#userappointment").html(app_day+" um "+app_time);
                 $("#printbutton").removeClass("d-none");
                 $("#btn-delappointment").removeClass("d-none");
+                $("#userappointmentwrapper").css('box-shadow', '0px 0px 25px #19ff00');
             }
             else
             {
                 $("#userappointment").html("Noch kein Termin gebucht");
                 $("#printbutton").addClass("d-none");
                 $("#btn-delappointment").addClass("d-none");
+                $("#userappointmentwrapper").css('box-shadow', 'none');
             }
             
 
@@ -261,4 +263,10 @@ function logout()
         alert("Logout failed")
         console.log(error);
       });
+}
+
+function goToByScroll(element) {
+    $('html, body').animate({
+        scrollTop: $(element).offset().top
+    }, 500);
 }

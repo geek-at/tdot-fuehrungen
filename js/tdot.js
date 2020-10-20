@@ -97,10 +97,11 @@ function checkTimeslots()
                 var parts = result.data.userappointment.split(";");
                 var app_day = pageinfo.TIMESLOTS[parts[0]].tag;
                 var app_time = parts[1];
-                $("#userappointment").html(app_day+" um "+app_time);
+                $("#userappointment").html('<div class="alert alert-success" role="alert">'+app_day+" um "+app_time+"</div>");
                 $("#printbutton").removeClass("d-none");
                 $("#btn-delappointment").removeClass("d-none");
                 $("#userappointmentwrapper").css('box-shadow', '0px 0px 25px #19ff00');
+                $("#userappointmenttitle").text("Ihr Termin ist fixiert")
             }
             else
             {
@@ -108,6 +109,7 @@ function checkTimeslots()
                 $("#printbutton").addClass("d-none");
                 $("#btn-delappointment").addClass("d-none");
                 $("#userappointmentwrapper").css('box-shadow', 'none');
+                $("#userappointmenttitle").text("Wählen Sie einen Termin")
             }
             
 

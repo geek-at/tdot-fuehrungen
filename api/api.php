@@ -36,12 +36,12 @@ switch ($url[0]) {
             $ret = array('code' => -1, 'reason' => 'Not logged in');
         else
         {
-            $appointment = $r->get(REDIS_PRESTRING.":users:$user:appointment");
+            $appointment = $r->get(REDIS_PRESTRING.":users:$token:appointment");
             if($appointment)
             {
                 $daytime = str_replace(';',':',$appointment);
                 $r->decr(REDIS_PRESTRING.":timeslots:$daytime");
-                $r->del(REDIS_PRESTRING.":users:$user:appointment");
+                $r->del(REDIS_PRESTRING.":users:$token:appointment");
             }
             
             addToLog("[$token] Deleted their appointment");
@@ -59,7 +59,7 @@ switch ($url[0]) {
             $timeslot = $url[2];
             $dd = getDayData();
 
-            if($r->get(REDIS_PRESTRING.":users:$user:appointment"))
+            if($r->get(REDIS_PRESTRING.":users:$token:appointment"))
             {
                 addToLog("[$token] Tried to register day $day at $timeslot but they already had an appointment");
                 $ret = array('code' => -1, 'reason' => 'Sie haben bereits einen Termin gebucht! Wenn sie ihn ändern möchten, löschen Sie zunächst den bestehenden Termin');
@@ -74,7 +74,7 @@ switch ($url[0]) {
                 }
                 else
                 {
-                    $r->set(REDIS_PRESTRING.":users:$user:appointment","$day;$timeslot");
+                    $r->set(REDIS_PRESTRING.":users:$token:appointment","$day;$timeslot");
                     $r->incr(REDIS_PRESTRING.":timeslots:$day:$timeslot");
                     addToLog("[$token] Successfully chose $day at $timeslot");
                     $ret = array('code' => 0, 'data' => array(
@@ -108,7 +108,7 @@ switch ($url[0]) {
 
             $ret = array('code' => 0, 'data' => array(
                 'timeslotdata' => $o,
-                'userappointment' => $r->get(REDIS_PRESTRING.":users:$user:appointment")
+                'userappointment' => $r->get(REDIS_PRESTRING.":users:$token:appointment")
             ));
         }
     break;

@@ -67,7 +67,7 @@ switch ($url[0]) {
             else if(in_array($timeslot,$dd[$day]['timeslots']))
             {
                 $reg = $r->get(REDIS_PRESTRING.":timeslots:$day:$timeslot");
-                if($reg >=8)
+                if($reg >=EVENT_MAXRES_PER_TIMESLOT)
                 {
                     addToLog("[$token] Tried to register day $day at $timeslot but this timeslot is already full");
                     $ret = array('code' => -1, 'reason' => 'Dieser Termin ist leider bereits ausgebucht');

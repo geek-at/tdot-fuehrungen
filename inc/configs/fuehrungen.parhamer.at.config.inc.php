@@ -14,7 +14,7 @@ define('FIREBASE_APPID','1:764917948690:web:5fe458a572d709de9213cb');
 define('ADMIN_PW',"7lfmcse0kx");
 define('SCHOOLNAME','Discover Parhamer');
 define('TITLE','Info Nachmittage am Parhamergymnasium');
-define('SCHOOL_INFOTEXT','Schüler und Schülerinnen des Parhamergymnasiums führen an zwei Nachmittagen in Kleingruppen durchs Schulhaus. Ein Tag der offenen Tür findet in diesem Herbst leider nicht statt.');
+define('SCHOOL_INFOTEXT','Schüler und Schülerinnen des Parhamergymnasiums führen am 16. November in Kleingruppen durchs Schulhaus. Ein Tag der offenen Tür findet in diesem Herbst leider nicht statt.');
 define('SCHOOL_CONTACT','');
 define('PAGE_URL','https://fuehrungen.parhamer.at');
 define('PAGE_HEADER_IMG','/imgs/parhamer-h.jpg');

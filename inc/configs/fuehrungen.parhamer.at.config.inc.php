@@ -25,7 +25,7 @@ define('EVENT_DATE','16. Nov. 2021');
 define('APPOINTMENT_MINUTES',15);
 define('EVENT_MAXRES_PER_TIMESLOT',5);
 define('PLATFORM_ONLINE_FROM',strtotime("21-10-2020"));
-define('PLATFORM_ONLINE_TO',strtotime("11-11-2021"));
+define('PLATFORM_ONLINE_TO',strtotime("11-11-2022"));
 define('RESERVATION_EXPIRE_SECONDS',3600);
 
 //redis

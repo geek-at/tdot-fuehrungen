@@ -47,9 +47,11 @@ function getFields(){
 //timeslots
 function getDayData()
 {
+    $days = [];
+    
     $days[] = array(
         'timeslots'=>getCustomTimeslots('09:00','11:50'),
-        'tag' => 'Dienstag, 12. Nov. 2021'
+        'tag' => 'Freitag, 12. Nov. 2021'
     );
 
     $days[] = array(

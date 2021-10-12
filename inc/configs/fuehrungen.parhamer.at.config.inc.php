@@ -14,7 +14,7 @@ define('FIREBASE_APPID','1:764917948690:web:5fe458a572d709de9213cb');
 define('ADMIN_PW',"7lfmcse0kx");
 define('SCHOOLNAME','Discover Parhamer');
 define('TITLE','Info Nachmittage am Parhamergymnasium');
-define('SCHOOL_INFOTEXT','Schüler und Schülerinnen des Parhamergymnasiums führen am 16. November in Kleingruppen durchs Schulhaus. Ein Tag der offenen Tür findet in diesem Herbst leider nicht statt.');
+define('SCHOOL_INFOTEXT','Tag der Offenen Tür - Schüler/innen führen in Kleingruppen durch das Schulhaus.');
 define('SCHOOL_CONTACT','');
 define('PAGE_URL','https://fuehrungen.parhamer.at');
 define('PAGE_HEADER_IMG','/imgs/parhamer-h.jpg');
@@ -48,7 +48,7 @@ function getFields(){
 function getDayData() //16. nov 8:30-13:30
 {
     $days[] = array('timeslots'=>array(
-        '08:00','08:15','08:30','08:45',
+        '08:30','08:45',
         '09:00','09:15','09:30','09:45',
         '10:00','10:15','10:30','10:45',
         '11:00','11:15','11:30','11:45',

@@ -198,7 +198,7 @@ function login_firebase(firebaseConfig) {
                 cache: false,
                 success: function (data) {
                     template = Handlebars.compile(data);
-                    $("main").html(template());
+                    $("main").html(template(pageinfo));
                     ui.start('#firebaseui-auth-container', uiConfig);
                 }
             });

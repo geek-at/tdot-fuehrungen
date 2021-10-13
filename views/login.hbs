@@ -1,4 +1,18 @@
-<div class="text-center">
+<div class="container text-center">
+    Freie Termine: {{SLOTS_STATS.free}}
+
+    <div class="progress">
+        <div    class="progress-bar"
+                role="progressbar"
+                style="width: {{SLOTS_STATS.used_percent}}%;"
+                aria-valuenow="{{SLOTS_STATS.used_percent}}"
+                aria-valuemin="0"
+                aria-valuemax="100">
+        {{SLOTS_STATS.used_percent}}% belegt</div>
+    </div>
+</div>
+
+<div class="text-center" style="margin-top: 20px;">
     <div style="width:21.5em;" class="mx-auto card text-center">
         <h2>Login</h2>
         <h5>Bitte bestätigen Sie Ihre Email oder Telefonnummer</h5>

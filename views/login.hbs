@@ -1,15 +1,14 @@
 <div class="container text-center">
-    Freie Termine: {{SLOTS_STATS.free}}
+    {{#gt SLOTS_STATS.free_percent 40 }}
+        Aktuell sind <span class="badge badge-primary">{{SLOTS_STATS.free}}</span> Termine frei
+    {{else}}
+        {{#gt SLOTS_STATS.free_percent 0 }}
+            Es sind nur mehr <span class="badge badge-warning">{{SLOTS_STATS.free}}</span> Termine frei
+            {{else}}
+            Achtung: Es sind aktuell keine Termine mehr frei.
+        {{/gt}}
 
-    <div class="progress">
-        <div    class="progress-bar"
-                role="progressbar"
-                style="width: {{SLOTS_STATS.used_percent}}%;"
-                aria-valuenow="{{SLOTS_STATS.used_percent}}"
-                aria-valuemin="0"
-                aria-valuemax="100">
-        {{SLOTS_STATS.used_percent}}% belegt</div>
-    </div>
+    {{/gt}}
 </div>
 
 <div class="text-center" style="margin-top: 20px;">

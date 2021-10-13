@@ -236,6 +236,11 @@ Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
     }
 });
 
+Handlebars.registerHelper('gt', function( a, b ){
+	var next =  arguments[arguments.length-1];
+	return (a > b) ? next.fn(this) : next.inverse(this);
+});
+
 async function postData(url = '', data = {}) {
     // Default options are marked with *
     const response = await fetch(url, {

@@ -14,9 +14,9 @@ define('FIREBASE_APPID','1:376752977671:web:97aa994e2e20b0a430b7a2');
 define('ADMIN_PW',"rGQzVDbBc");
 define('SCHOOLNAME','BG18 Klostergasse');
 define('TITLE','Schulführungen am BG18 Klostergasse');
-define('SCHOOL_INFOTEXT','Schüler und Schülerinnen des BG18 Klostergasse führen in Kleingruppen durchs Schulhaus.<br/><strong class="font-weight-bold">Wir bitten um Pünktlichkeit</strong>, da es sonst zu organisatorischen Problemen kommt.');
+define('SCHOOL_INFOTEXT','Schüler und Schülerinnen des BG18 Klostergasse führen in Kleingruppen durchs Schulhaus.<br/><strong class="font-weight-bold">Wir bitten um Pünktlichkeit</strong>, da es sonst zu organisatorischen Problemen kommt.<br/>Für das Betreten des Schulhauses ist ein 3G-Nachweis erforderlich und für Erwachsene sind FFP2 Masken; für Kinder MNS Schutz erforderlich');
 define('SCHOOL_CONTACT','');
-define('PAGE_URL','https://tdot.bg18.at');
+define('PAGE_URL','https://fuehrungen.bg18.at');
 define('PAGE_HEADER_IMG','/imgs/bg18-h.jpg');
 define('PAGE_HEADER_CARD1','/imgs/card-h.jpg');
 define('PAGE_HEADER_CARD2','/imgs/card-h.jpg');
@@ -48,7 +48,7 @@ function getFields(){
 function getDayData()
 {
     $days = [];
-    
+
     $days[] = array(
         'timeslots'=>getCustomTimeslots('09:00','11:50'),
         'tag' => 'Freitag, 12. Nov. 2021'

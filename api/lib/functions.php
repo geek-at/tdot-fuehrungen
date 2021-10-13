@@ -136,3 +136,41 @@ function addToLog($data)
     fwrite($fp,"[".SCHOOLNAME."] [".date("d.m H:i")."] ".$data."\n");
     fclose($fp);
 }
+
+function getSlotCount()
+{
+    $d = getDayData();
+    $sum = 0;
+
+    foreach($d as $dd)
+    {
+        $sum+=count($dd['timeslots']);
+    }
+
+    return $sum;
+}
+
+function getFreeSlotsCount()
+{
+    $total = getSlotCount();
+    $used = 0;
+    $redis = connectRedis();
+    $users = $redis->keys(REDIS_PRESTRING . ':users:*');
+            foreach ($users as $u) {
+                $a = explode(':', $u);
+                $user = $a[3];
+                $field = $a[4];
+
+                if ($field == 'appointment') {
+                    $used++;
+                }
+            }
+
+    return [
+        'total' => $total,
+        'used'  => $used,
+        'free'  => ($total-$used),
+        'free_percent' => round((($total-$used)/$total)*100),
+        'used_percent' => round(($used/$total)*100),
+    ];
+}

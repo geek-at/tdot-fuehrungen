@@ -26,11 +26,11 @@ define('APPOINTMENT_MINUTES',5);
 define('APPOINTMENT_TOMINUTE',25);
 define('EVENT_MAXRES_PER_TIMESLOT',1);
 define('PLATFORM_ONLINE_FROM',strtotime("29-09-2020 17:58"));
-define('PLATFORM_ONLINE_TO',strtotime("29-10-2020 17:34")-1);
+define('PLATFORM_ONLINE_TO',strtotime("29-10-2022 17:34")-1);
 define('RESERVATION_EXPIRE_SECONDS',3600);
 
 //redis
-define('REDIS_SERVER', '127.0.0.1');
+define('REDIS_SERVER', '192.168.1.115');
 define('REDIS_PORT', 6379);
 define('REDIS_PASS','');
 define('REDIS_PRESTRING', 'tdot:bg18');

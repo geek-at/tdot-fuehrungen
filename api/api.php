@@ -173,7 +173,8 @@ switch ($url[0]) {
             'PLATFORM_ONLINE_TO' => PLATFORM_ONLINE_TO,
             'PLATFORM_ONLINE_NOW' => ((time() >= PLATFORM_ONLINE_FROM && time() < PLATFORM_ONLINE_TO)?true:false),
             'PLATFORM_OPENS_IN' => ( time() < PLATFORM_ONLINE_FROM ?(PLATFORM_ONLINE_FROM - time()):false),
-            'PLATFORM_CLOSES_IN' => ( time() < PLATFORM_ONLINE_TO ?(PLATFORM_ONLINE_TO - time()):false)
+            'PLATFORM_CLOSES_IN' => ( time() < PLATFORM_ONLINE_TO ?(PLATFORM_ONLINE_TO - time()):false),
+            'SLOTS_STATS'=>getFreeSlotsCount()
         ));
         break;
 

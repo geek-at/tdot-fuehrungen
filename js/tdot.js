@@ -179,6 +179,7 @@ function login_firebase(firebaseConfig) {
                 signInSuccessUrl: '/',
                 signInOptions: [
                     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                    'microsoft.com',
                     //firebase.auth.MicrosoftAuthProvider.PROVIDER_ID,
                     /*{
                         provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,

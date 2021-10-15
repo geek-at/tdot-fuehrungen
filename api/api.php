@@ -161,6 +161,7 @@ switch ($url[0]) {
             'SCHOOLNAME' => SCHOOLNAME,
             'TITLE' => TITLE,
             'SCHOOL_INFOTEXT' => SCHOOL_INFOTEXT,
+            'SCHOOL_NOTICE' => (defined('SCHOOL_NOTICE')?SCHOOL_NOTICE:''),
             'SCHOOL_CONTACT' => SCHOOL_CONTACT,
             'PAGE_URL' => PAGE_URL,
             'PAGE_HEADER_IMG' => PAGE_HEADER_IMG,

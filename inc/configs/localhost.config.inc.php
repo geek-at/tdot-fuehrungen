@@ -15,6 +15,12 @@ define('ADMIN_PW',"rGQzVDbBc");
 define('SCHOOLNAME','BG18 Klostergasse');
 define('TITLE','Schulführungen am BG18 Klostergasse');
 define('SCHOOL_INFOTEXT','Schüler und Schülerinnen des BG18 Klostergasse führen in Kleingruppen durchs Schulhaus.<br/><strong class="font-weight-bold">Wir bitten um Pünktlichkeit</strong>, da es sonst zu organisatorischen Problemen kommt.');
+define('SCHOOL_NOTICE','
+Aufgrund der derzeit gültigen Covid19-Regelungen ist der Besuch unseres Tages der Offenen Tür 2021 <strong>ausschließlich mit einer von Schüler/innen geführten Tour</strong> durch das Schulhaus möglich. Im Rahmen der Führung kann Unterricht beobachtet werden und nach der Führung haben Sie die Möglichkeit, Informationen zu den drei Schulzweigen des Parhamergymnasiums zu erhalten
+<br/>
+Beim Betreten des Schulhauses muss von allen Besucher/innen ein <strong>3G Nachweis</strong> (Impfbestätigung, Nachweis über Genesung oder aktueller Testnachweis) vorgezeigt werden. Während des Aufenthaltes im Schulhaus muss ein Mund-Nasen-Schutz oder eine FFP2- Maske getragen werden.
+<br/>
+Die Führungen finden in Gruppen bis maximal 10 Personen statt. Pro Person können jeweils zwei Plätze (z.B. Elternteil mit Kind) vorreserviert werden. Termine können ab Mittwoch, den 20.10., auf der Anmeldeplattform gebucht werden. Im Rahmen der Vorreservierung werden Ihre Telefonnummer und E-Mailadresse erhoben, um Sie im Bedarfsfall kontaktieren zu können. Sollten keine Termine mehr verfügbar sein, verweisen wir Sie auf unseren digitalen Informationsabend am Donnerstag, den 9. November.');
 define('SCHOOL_CONTACT','');
 define('PAGE_URL','https://tdot.bg18.at');
 define('PAGE_HEADER_IMG','/imgs/bg18-h.jpg');
@@ -24,9 +30,9 @@ define('PAGE_HEADER_CARD2','/imgs/card-h.jpg');
 define('EVENT_DATE','16. März 2020');
 define('APPOINTMENT_MINUTES',5);
 define('APPOINTMENT_TOMINUTE',25);
-define('EVENT_MAXRES_PER_TIMESLOT',1);
+define('EVENT_MAXRES_PER_TIMESLOT',5);
 define('PLATFORM_ONLINE_FROM',strtotime("29-09-2020 17:58"));
-define('PLATFORM_ONLINE_TO',strtotime("29-10-2022 17:34")-1);
+define('PLATFORM_ONLINE_TO',strtotime("29-10-2020 17:34")-1);
 define('RESERVATION_EXPIRE_SECONDS',3600);
 
 //redis

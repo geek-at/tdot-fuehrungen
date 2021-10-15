@@ -24,7 +24,19 @@ function loadPageInfo() {
                 else if(pageinfo.PLATFORM_OPENS_IN>0)
                     renderCountdown((pageinfo.PLATFORM_OPENS_IN * 1000));
                 else
-                    $("main").html("<h2 class='text-center'>Die Plattform ist geschlossen</h2>")
+                {
+                    $("main").html("<h2 class='text-center'>Die Plattform ist zur Zeit geschlossen</h2>");
+                    if(pageinfo.SCHOOL_NOTICE)
+                    {
+                        $("main").append(`
+                        <div class="container text-center">
+                            <div class="alert alert-primary" role="alert">
+                                <h2>Information</h2>
+                                `+pageinfo.SCHOOL_NOTICE+`
+                            </div>
+                        </div>`);
+        }
+                }
                 
             }
             else

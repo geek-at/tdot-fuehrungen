@@ -32,7 +32,7 @@ define('APPOINTMENT_MINUTES',5);
 define('APPOINTMENT_TOMINUTE',25);
 define('EVENT_MAXRES_PER_TIMESLOT',5);
 define('PLATFORM_ONLINE_FROM',strtotime("29-09-2020 17:58"));
-define('PLATFORM_ONLINE_TO',strtotime("29-10-2020 17:34")-1);
+define('PLATFORM_ONLINE_TO',strtotime("29-10-2022 17:34")-1);
 define('RESERVATION_EXPIRE_SECONDS',3600);
 
 //redis
@@ -44,10 +44,15 @@ define('REDIS_PRESTRING', 'tdot:bg18');
 //fields
 function getFields(){
     return array(
-        'person1'=>     array('mandatory'=>true,'text'=>'Name 1. Person',   'hint'=>'Name der zum Besuch angemeldeten Person'),
-        'person2'=>     array('mandatory'=>false,'text'=>'Name 2. Person',  'hint'=>'Name der zweiten Person'),
-        'phone'=>       array('mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
-        'email'=>       array('mandatory'=>true,'text'=>'Email Adresse')
+        'person1'=>     array('type'=>'input','mandatory'=>true,'text'=>'Name 1. Person',   'hint'=>'Name der zum Besuch angemeldeten Person'),
+        'person2'=>     array('type'=>'input','mandatory'=>false,'text'=>'Name 2. Person',  'hint'=>'Name der zweiten Person'),
+        'phone'=>       array('type'=>'input','mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
+        'email'=>       array('type'=>'input','mandatory'=>true,'text'=>'Email Adresse'),
+        'zweig'=>       array('type'=>'select','mandatory'=>false,'text'=>'Interesse am Zweig','hint'=>'Bitte auswählen, an welchem Zweig ein Interesse besteht','options'=>[
+            'WIKU',
+            'Sport',
+            'Bilingual'
+        ])
     );}
 
 //timeslots

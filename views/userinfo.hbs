@@ -7,11 +7,28 @@
             <form>
 
                 {{#each this}}
-                <div class="form-group">
-                    <label for="input-{{@key}}">{{this.text}}</label>
-                    <input type="text" class="form-control" id="input-{{@key}}" aria-describedby="{{@key}}Help" value="{{this.value}}">
-                    <small id="{{@key}}Help" class="form-text text-muted">{{this.hint}}</small>
-                </div>
+                    {{#ifCond this.type '==' 'input'}}
+                    <div class="form-group">
+                        <label for="input-{{@key}}">{{this.text}}</label>
+                        <input type="text" class="form-control" id="input-{{@key}}" aria-describedby="{{@key}}Help" value="{{this.value}}">
+                        <small id="{{@key}}Help" class="form-text text-muted">{{this.hint}}</small>
+                    </div>
+                    {{/ifCond}}
+
+                    {{#ifCond this.type '==' 'select'}}
+                    <div class="form-group">
+                        <label for="input-{{@key}}">{{this.text}}</label>
+                        <select class="form-control" id="input-{{@key}}" aria-describedby="{{@key}}Help">
+                            <option>Unentschlossen</option>
+                            {{#each this.options}}
+                                <option {{#ifCond ../this.value '==' this}} selected {{/ifCond}}>
+                                    {{this}}
+                                </option>
+                            {{/each}}
+                        </select>
+                        <small id="{{@key}}Help" class="form-text text-muted">{{this.hint}}</small>
+                    </div>
+                    {{/ifCond}}
                 {{/each}}
 
                 <button id="saveuserdata" class="btn btn-primary"><i class="fas fa-save"></i> Speichern</button>

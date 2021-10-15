@@ -35,7 +35,7 @@ function loadPageInfo() {
                                 `+pageinfo.SCHOOL_NOTICE+`
                             </div>
                         </div>`);
-        }
+                    }
                 }
                 
             }

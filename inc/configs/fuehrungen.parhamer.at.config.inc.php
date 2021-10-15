@@ -46,8 +46,12 @@ function getFields(){
         'person1'=>     array('mandatory'=>true,'text'=>'Name 1. Person',   'hint'=>'Name der zum Besuch angemeldeten Person'),
         'person2'=>     array('mandatory'=>false,'text'=>'Name 2. Person',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
         'phone'=>       array('mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
-        // optional für welchen zweig interessiert
-        'email'=>       array('mandatory'=>true,'text'=>'Email Adresse')
+        'email'=>       array('mandatory'=>true,'text'=>'Email Adresse'),
+        'zweig'=>       array('type'=>'select','mandatory'=>false,'text'=>'Interesse am Zweig','hint'=>'Bitte auswählen, an welchem Zweig ein Interesse besteht','options'=>[
+            'WIKU',
+            'Sport',
+            'Bilingual'
+        ])
     );}
 
 //timeslots

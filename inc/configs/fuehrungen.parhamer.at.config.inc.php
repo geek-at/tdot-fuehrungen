@@ -43,10 +43,10 @@ define('REDIS_PRESTRING', 'tdot:parhamer');
 //fields
 function getFields(){
     return array(
-        'person1'=>     array('mandatory'=>true,'text'=>'Name 1. Person',   'hint'=>'Name der zum Besuch angemeldeten Person'),
-        'person2'=>     array('mandatory'=>false,'text'=>'Name 2. Person',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
-        'phone'=>       array('mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
-        'email'=>       array('mandatory'=>true,'text'=>'Email Adresse'),
+        'person1'=>     array('type'=>'input','mandatory'=>true,'text'=>'Name 1. Person',   'hint'=>'Name der zum Besuch angemeldeten Person'),
+        'person2'=>     array('type'=>'input','mandatory'=>false,'text'=>'Name 2. Person',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
+        'phone'=>       array('type'=>'input','mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
+        'email'=>       array('type'=>'input','mandatory'=>true,'text'=>'Email Adresse'),
         'zweig'=>       array('type'=>'select','mandatory'=>false,'text'=>'Interesse am Zweig','hint'=>'Bitte auswählen, an welchem Zweig ein Interesse besteht','options'=>[
             'WIKU',
             'Sport',

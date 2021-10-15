@@ -253,6 +253,19 @@ Handlebars.registerHelper('gt', function( a, b ){
 	return (a > b) ? next.fn(this) : next.inverse(this);
 });
 
+Handlebars.registerHelper({
+    eq: (v1, v2) => v1 === v2,
+    ne: (v1, v2) => v1 !== v2,
+    lte: (v1, v2) => v1 <= v2,
+    gte: (v1, v2) => v1 >= v2,
+    and() {
+        return Array.prototype.every.call(arguments, Boolean);
+    },
+    or() {
+        return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+    }
+});
+
 async function postData(url = '', data = {}) {
     // Default options are marked with *
     const response = await fetch(url, {

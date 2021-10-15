@@ -38,10 +38,10 @@ define('REDIS_PRESTRING', 'tdot:bg18');
 //fields
 function getFields(){
     return array(
-        'person1'=>     array('mandatory'=>true,'text'=>'Name 1. Person',   'hint'=>'Name der zum Besuch angemeldeten Person'),
-        'person2'=>     array('mandatory'=>false,'text'=>'Name 2. Person',  'hint'=>'Name der zweiten Person'),
-        'phone'=>       array('mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
-        'email'=>       array('mandatory'=>true,'text'=>'Email Adresse')
+        'person1'=>     array('type'=>'input','mandatory'=>true,'text'=>'Name 1. Person',   'hint'=>'Name der zum Besuch angemeldeten Person'),
+        'person2'=>     array('type'=>'input','mandatory'=>false,'text'=>'Name 2. Person',  'hint'=>'Name der zweiten Person'),
+        'phone'=>       array('type'=>'input','mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
+        'email'=>       array('type'=>'input','mandatory'=>true,'text'=>'Email Adresse')
     );}
 
 //timeslots

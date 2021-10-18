@@ -144,7 +144,7 @@ function getSlotCount()
 
     foreach($d as $dd)
     {
-        $sum+=count($dd['timeslots']);
+        $sum+=(count($dd['timeslots'])*EVENT_MAXRES_PER_TIMESLOT);
     }
 
     return $sum;
@@ -152,7 +152,7 @@ function getSlotCount()
 
 function getFreeSlotsCount()
 {
-    $total = (getSlotCount()*EVENT_MAXRES_PER_TIMESLOT);
+    $total = getSlotCount();
     $used = 0;
     $redis = connectRedis();
     $users = $redis->keys(REDIS_PRESTRING . ':users:*');

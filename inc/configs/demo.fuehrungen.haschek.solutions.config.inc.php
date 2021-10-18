@@ -65,5 +65,15 @@ function getDayData()
         'tag' => 'Freitag, 14. Jän. 2022'
     );
 
+    $days[] = array(
+        'timeslots'=>getCustomTimeslots('09:00','11:50'),
+        'tag' => 'Freitag, 21. Jän. 2022'
+    );
+
+    $days[] = array(
+        'timeslots'=>getCustomTimeslots('09:00','11:50'),
+        'tag' => 'Freitag, 28. Jän. 2022'
+    );
+
     return $days;
 }

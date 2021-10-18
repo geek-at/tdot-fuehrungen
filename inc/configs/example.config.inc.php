@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set("Europe/Vienna");
 
 // firebase
 define('FIREBASE_APIKEY','');

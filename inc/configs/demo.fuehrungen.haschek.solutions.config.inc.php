@@ -15,7 +15,7 @@ define('ADMIN_PW',"demo1234");
 define('SCHOOLNAME','Demoschule');
 define('TITLE','Schulführungen Demo Anmeldung');
 define('SCHOOL_INFOTEXT','Schüler und Schülerinnen führen in Kleingruppen durchs Schulhaus');
-define('SCHOOL_NOTICE','Diese Demoseite zeigt, wie die Elternansicht aussieht. Für die Administrative Ansicht klicken Sie <a href="/schuladministration.php?password=demo1234">hier</a>');
+define('SCHOOL_NOTICE','Diese Demoseite zeigt, wie die Elternansicht aussieht. Für die Administrative Ansicht klicken Sie <a href="/schuladministration.php?password=demo1234">hier</a>. Die eingetragenen Daten sind Zufallsgeneriert.');
 define('SCHOOL_CONTACT','');
 define('PAGE_URL','https://demo.fuehrungen.haschek.solutions');
 define('PAGE_HEADER_IMG','/imgs/bg18-h.jpg');

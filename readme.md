@@ -7,3 +7,14 @@
 
 online ab 7.
 offline 1 tag vorher ende
+
+
+# brg14
+
+9:00, 20, 40 - 12:20 (letzte führung)
+
+immer 2 parallel
+
+5 + 5 (5 erwachsene + 5 Kinder)
+
+trinko

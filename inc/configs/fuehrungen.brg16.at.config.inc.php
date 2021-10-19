@@ -27,7 +27,7 @@ define('PAGE_HEADER_IMG','/imgs/brg16-h.jpg');
 define('PAGE_HEADER_CARD1','/imgs/grg17-1.jpg');
 define('PAGE_HEADER_CARD2','/imgs/grg17-2.jpg');
 
-define('EVENT_DATE','16. Nov. 2021');
+define('EVENT_DATE','12. Nov. 2021');
 define('APPOINTMENT_MINUTES',20);
 define('EVENT_MAXRES_PER_TIMESLOT',5);
 define('PLATFORM_ONLINE_FROM',strtotime("20-10-2020"));
@@ -57,7 +57,7 @@ function getDayData() //16. nov 8:30-13:30
         '10:00','10:20','10:40',
         '11:00','11:20','11:40',
         '12:00','12:20'
-    ),   'tag' => 'Dienstag, 16.11.2021');
+    ),   'tag' => 'Freitag, 12.11.2021');
     return $days;
 }
 

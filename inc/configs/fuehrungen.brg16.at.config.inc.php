@@ -17,11 +17,31 @@ define('TITLE','Tag der offenen Tür');
 define('SCHOOL_INFOTEXT','Tag der Offenen Tür - Schüler/innen führen in Kleingruppen durch das Schulhaus.');
 define('SCHOOL_CONTACT','');
 define('SCHOOL_NOTICE','
-Aufgrund der derzeit gültigen Covid19-Regelungen ist der Besuch unseres Tages der Offenen Tür 2021 <strong>ausschließlich mit einer von Schüler/innen geführten Tour</strong> durch das Schulhaus möglich. Im Rahmen der Führung kann Unterricht beobachtet werden und nach der Führung haben Sie die Möglichkeit, Informationen zu den drei Schulzweigen des Parhamergymnasiums zu erhalten
-<br/>
-Beim Betreten des Schulhauses muss von allen Besucher/innen ein <strong>3G Nachweis</strong> (Impfbestätigung, Nachweis über Genesung oder aktueller Testnachweis) vorgezeigt werden. Während des Aufenthaltes im Schulhaus muss ein Mund-Nasen-Schutz oder eine FFP2- Maske getragen werden.
-<br/>
-Die Führungen finden in Gruppen bis maximal 10 Personen statt. Pro Person können jeweils zwei Plätze (z.B. Elternteil mit Kind) vorreserviert werden. Termine können ab Mittwoch, den 20.10., auf der Anmeldeplattform gebucht werden. Im Rahmen der Vorreservierung werden Ihre Telefonnummer und E-Mailadresse erhoben, um Sie im Bedarfsfall kontaktieren zu können. Sollten keine Termine mehr verfügbar sein, verweisen wir Sie auf unseren digitalen Informationsabend am Donnerstag, den 9. Dezember.');
+<p>
+    Aufgrund der derzeit gültigen Covid19-Regelungen ist der Besuch unseres Tages der Offenen
+    Tür 2021 <strong>ausschließlich unter Einhaltung der 2,5-G-Regel (geimpft, genesen oder PCR-
+    getestet) und mit einer von Schüler*innen geführten Tour durch das Schulhaus möglich.</strong>
+    Während des Aufenthaltes im Schulhaus ist das Tragen eines Mund-Nasen-Schutzes oder
+    einer FFP2- Maske verpflichtend.
+</p>
+
+<p>
+    Im Rahmen der Führung kann Unterricht beobachtet werden und Sie können sich über unsere Angebote informieren.
+</p>
+
+<p>Sie bekommen auch Informationen zu unseren <strong>neuen Schwerpunktklassen</strong> der Unterstufe:</p>
+
+<ul>
+    <li><strong>Musisch-kreativ</strong> (Musik und bildende Kunst)</li>
+    <li><strong>MINT</strong> (Mathematik – Informatik – Naturwissenschaften – Technik)</li>
+    <li><strong>IWA</strong> (Ich – Wir – Alle; Sozial- und Lebenskompetenz)</li>
+    <li><strong>Spanisch</strong></li>
+</ul>
+
+<p>
+    Sie können auch <strong>ohne Terminreservierung</strong> kommen, müssen jedoch mit etwaigen Wartezeiten (Registrierung) rechnen.
+</p>
+');
 define('PAGE_URL','https://fuehrungen.brg16.at');
 define('PAGE_HEADER_IMG','/imgs/brg16-h.jpg');
 define('PAGE_HEADER_CARD1','/imgs/grg17-1.jpg');

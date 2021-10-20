@@ -8,7 +8,7 @@ $(document).ready(function () {
 });
 
 function loadPageInfo() {
-    postData('/api/api.php?url=/api/getpageinfo', {  })
+    postData('/api/api.php?url=/api/getpageinfo/?r='+Math.random(), {  })
         .then(result => {
             console.log(result);
             if(result.code===0)

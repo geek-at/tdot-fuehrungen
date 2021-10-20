@@ -13,7 +13,7 @@ define('FIREBASE_APPID','1:265553160530:web:54c9f3691174598602b28b');
 //school
 define('ADMIN_PW',"q9zf169u7na");
 define('SCHOOLNAME','RG16 Schuhmeierplatz');
-define('TITLE','Tag der offenen Tür');
+define('TITLE','BRG16 Schuhmeierplatz');
 define('SCHOOL_INFOTEXT','Tag der Offenen Tür - Schüler/innen führen in Kleingruppen durch das Schulhaus.');
 define('SCHOOL_CONTACT','');
 define('SCHOOL_NOTICE','

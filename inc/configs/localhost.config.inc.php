@@ -16,11 +16,37 @@ define('SCHOOLNAME','BG18 Klostergasse');
 define('TITLE','Schulführungen am BG18 Klostergasse');
 define('SCHOOL_INFOTEXT','Schüler und Schülerinnen des BG18 Klostergasse führen in Kleingruppen durchs Schulhaus.<br/><strong class="font-weight-bold">Wir bitten um Pünktlichkeit</strong>, da es sonst zu organisatorischen Problemen kommt.');
 define('SCHOOL_NOTICE','
-Aufgrund der derzeit gültigen Covid19-Regelungen ist der Besuch unseres Tages der Offenen Tür 2021 <strong>ausschließlich mit einer von Schüler/innen geführten Tour</strong> durch das Schulhaus möglich. Im Rahmen der Führung kann Unterricht beobachtet werden und nach der Führung haben Sie die Möglichkeit, Informationen zu den drei Schulzweigen des Parhamergymnasiums zu erhalten
-<br/>
-Beim Betreten des Schulhauses muss von allen Besucher/innen ein <strong>3G Nachweis</strong> (Impfbestätigung, Nachweis über Genesung oder aktueller Testnachweis) vorgezeigt werden. Während des Aufenthaltes im Schulhaus muss ein Mund-Nasen-Schutz oder eine FFP2- Maske getragen werden.
-<br/>
-Die Führungen finden in Gruppen bis maximal 10 Personen statt. Pro Person können jeweils zwei Plätze (z.B. Elternteil mit Kind) vorreserviert werden. Termine können ab Mittwoch, den 20.10., auf der Anmeldeplattform gebucht werden. Im Rahmen der Vorreservierung werden Ihre Telefonnummer und E-Mailadresse erhoben, um Sie im Bedarfsfall kontaktieren zu können. Sollten keine Termine mehr verfügbar sein, verweisen wir Sie auf unseren digitalen Informationsabend am Donnerstag, den 9. November.');
+<div class="text-left">
+<p>
+    Aufgrund der derzeit gültigen Covid19-Regelungen ist der Besuch unseres Tages der Offenen
+    Tür 2021 <strong>ausschließlich unter Einhaltung der 2,5-G-Regel (geimpft, genesen oder PCR-
+    getestet) und mit einer von Schüler*innen geführten Tour durch das Schulhaus möglich.</strong>
+    Während des Aufenthaltes im Schulhaus ist das Tragen eines Mund-Nasen-Schutzes oder
+    einer FFP2- Maske verpflichtend.
+</p>
+
+<p>
+    Im Rahmen der Führung kann Unterricht beobachtet werden und Sie können sich über unsere Angebote informieren.
+</p>
+
+<p>Sie bekommen auch Informationen zu unseren <strong>neuen Schwerpunktklassen</strong> der Unterstufe:</p>
+
+<div class="row">
+    <div class="col-6 mx-auto">
+    <ul>
+    <li><strong>Musisch-kreativ</strong> (Musik und bildende Kunst)</li>
+    <li><strong>MINT</strong> (Mathematik – Informatik – Naturwissenschaften – Technik)</li>
+    <li><strong>IWA</strong> (Ich – Wir – Alle; Sozial- und Lebenskompetenz)</li>
+    <li><strong>Spanisch</strong></li>
+</ul>
+    </div>
+</div>
+
+<p>
+    Sie können auch <strong>ohne Terminreservierung</strong> kommen, müssen jedoch mit etwaigen Wartezeiten (Registrierung) rechnen.
+</p>
+</div>
+');
 define('SCHOOL_CONTACT','');
 define('PAGE_URL','https://tdot.bg18.at');
 define('PAGE_HEADER_IMG','/imgs/bg18-h.jpg');

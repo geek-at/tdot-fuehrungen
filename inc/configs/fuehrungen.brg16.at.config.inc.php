@@ -17,6 +17,7 @@ define('TITLE','Tag der offenen Tür');
 define('SCHOOL_INFOTEXT','Tag der Offenen Tür - Schüler/innen führen in Kleingruppen durch das Schulhaus.');
 define('SCHOOL_CONTACT','');
 define('SCHOOL_NOTICE','
+<div class="text-left">
 <p>
     Aufgrund der derzeit gültigen Covid19-Regelungen ist der Besuch unseres Tages der Offenen
     Tür 2021 <strong>ausschließlich unter Einhaltung der 2,5-G-Regel (geimpft, genesen oder PCR-
@@ -31,16 +32,21 @@ define('SCHOOL_NOTICE','
 
 <p>Sie bekommen auch Informationen zu unseren <strong>neuen Schwerpunktklassen</strong> der Unterstufe:</p>
 
-<ul>
+<div class="row">
+    <div class="col-6 mx-auto">
+    <ul>
     <li><strong>Musisch-kreativ</strong> (Musik und bildende Kunst)</li>
     <li><strong>MINT</strong> (Mathematik – Informatik – Naturwissenschaften – Technik)</li>
     <li><strong>IWA</strong> (Ich – Wir – Alle; Sozial- und Lebenskompetenz)</li>
     <li><strong>Spanisch</strong></li>
 </ul>
+    </div>
+</div>
 
 <p>
     Sie können auch <strong>ohne Terminreservierung</strong> kommen, müssen jedoch mit etwaigen Wartezeiten (Registrierung) rechnen.
 </p>
+</div>
 ');
 define('PAGE_URL','https://fuehrungen.brg16.at');
 define('PAGE_HEADER_IMG','/imgs/brg16-h.jpg');

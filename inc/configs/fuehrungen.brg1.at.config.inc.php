@@ -40,7 +40,7 @@ function getFields(){
     return array(
         'person1'=>     array('type'=>'input','mandatory'=>true,'text'=>'Erwachsener 1',   'hint'=>'Name der zum Besuch angemeldeten Person'),
         'person2'=>     array('type'=>'input','mandatory'=>false,'text'=>'Erwachsener 2',  'hint'=>'Name der zweiten zum Besuch angemeldeten Person'),
-        'person2'=>     array('type'=>'input','mandatory'=>false,'text'=>'Kind',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
+        'person3'=>     array('type'=>'input','mandatory'=>false,'text'=>'Kind',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
         'phone'=>       array('type'=>'input','mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
         'email'=>       array('type'=>'input','mandatory'=>true,'text'=>'Email Adresse')
     );}

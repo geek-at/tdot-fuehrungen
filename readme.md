@@ -18,3 +18,17 @@ immer 2 parallel
 5 + 5 (5 erwachsene + 5 Kinder)
 
 trinko
+
+
+
+# brg1
+30 personen max
+2 erwachsene + 1 kind maximal
+
+gleich online
+23. November 21
+
+9
+10
+11
+12

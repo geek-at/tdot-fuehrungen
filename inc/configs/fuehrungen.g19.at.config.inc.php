@@ -14,14 +14,28 @@ define('FIREBASE_APPID','1:767780206915:web:568104e9e794889e4417f6');
 define('ADMIN_PW',"GlkXtmDBPg");
 define('SCHOOLNAME','Döblinger Gymnasium');
 define('TITLE','Döblinger Gymnasium');
-define('SCHOOL_INFOTEXT','Tag der Offenen Tür - Schüler/innen führen in Gruppen durch das Schulhaus.');
+define('SCHOOL_INFOTEXT','Tag der Offenen Tür - Schüler*innen führen in Gruppen durch das Schulhaus.');
 define('SCHOOL_CONTACT','');
 //define('SCHOOL_NOTICE','');
 define('PAGE_URL','https://fuehrungen.g19.at');
 define('PAGE_HEADER_IMG','/imgs/g19-h.jpg');
 define('PAGE_HEADER_CARD1','/imgs/grg17-1.jpg');
 define('PAGE_HEADER_CARD2','/imgs/grg17-2.jpg');
+define('SCHOOL_NOTICE','
+<div class="text-left">
+<p>
+    Aufgrund der derzeit gültigen Covid19-Regelungen ist der Besuch unseres Tages der Offenen
+    Tür 2021 <strong>ausschließlich unter Einhaltung der 2,5-G-Regel (geimpft, genesen oder PCR-
+    getestet) und mit einer von Schüler*innen geführten Tour durch das Schulhaus möglich.</strong>
+    Während des Aufenthaltes im Schulhaus ist das Tragen eines Mund-Nasen-Schutzes oder
+    einer FFP2- Maske verpflichtend.
+</p>
 
+<p>
+    Im Rahmen der Führung kann Unterricht beobachtet werden und Sie können sich über unsere Angebote informieren. Neu ist unsere <strong>Ganztagesklasse</strong> ab dem Schuljahr 2022/23
+</p>
+</div>
+');
 define('EVENT_DATE','19.11.2021');
 define('APPOINTMENT_MINUTES',20);
 define('EVENT_MAXRES_PER_TIMESLOT',12);

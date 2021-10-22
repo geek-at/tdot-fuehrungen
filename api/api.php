@@ -44,7 +44,10 @@ switch ($url[0]) {
                 $r->del(REDIS_PRESTRING.":users:$token:appointment");
             }
             
-            addToLog("[$token] Deleted their appointment");
+            if($url[1]=='admin')
+                addToLog("[$token] Deleted by Admin");
+            else
+                addToLog("[$token] Deleted their appointment");
             $ret = array('code' => 0);
         }
 

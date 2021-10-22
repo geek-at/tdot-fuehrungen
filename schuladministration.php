@@ -30,7 +30,7 @@ require_once(ROOT . '/api/../inc/configs/' . DOMAIN . '.config.inc.php');
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="css/aufnahme.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
@@ -88,6 +88,7 @@ require_once(ROOT . '/api/../inc/configs/' . DOMAIN . '.config.inc.php');
             foreach ($fields as $fieldname => $fd) {
                 $everyheader .= '<th>' . $fieldname . '</th>';
             }
+            $everyheader .= '<th>Löschen</th>';
 
 
             $dd = getDayData();
@@ -114,6 +115,7 @@ require_once(ROOT . '/api/../inc/configs/' . DOMAIN . '.config.inc.php');
                                 
                                 $table .= '<td>'.$redis->get(REDIS_PRESTRING.":users:$u:$fieldname").'</td>';
                             }
+                            $table .= '<td><button user="'.$u.'" day="'.$day.'" time="'.$time.'" class="btn btn-danger userdelbutton">Löschen</button></td>';
                         }
                     }
 
@@ -138,6 +140,44 @@ require_once(ROOT . '/api/../inc/configs/' . DOMAIN . '.config.inc.php');
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).on("click",".userdelbutton",function(e) {
+            var user=$(this).attr("user");
+            var day=$(this).attr("day");
+            var time=$(this).attr("time");
+
+            if(confirm('Soll dieser Termin wirklich gelöscht werden? Der Benutzer wird NICHT automatisch benachrichtigt!'))
+            {
+                postData('/api/api.php?url=/api/deleteappointment/admin', {},user).then(data => {
+                    if(data.code==0)
+                    {
+                        $(this).parent().parent().fadeOut();
+                    }
+                    else
+                    {
+                        alert("Fehler: "+data.reason)
+                    }
+                });
+            }
+
+            e.preventDefault();
+        });
+
+        async function postData(url = '', data = {},token) {
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Firebase-Token': token,
+                },
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
+    </script>
 </body>
 
 </html>

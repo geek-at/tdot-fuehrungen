@@ -34,6 +34,11 @@ define('SCHOOL_NOTICE','
 <p>
     Im Rahmen der Führung kann Unterricht beobachtet werden und Sie können sich über unsere Angebote informieren. Neu ist unsere <strong>Ganztagesklasse</strong> ab dem Schuljahr 2022/23
 </p>
+
+<p>
+Wir freuen uns sehr über die große Nachfrage! Am Freitag, dem 19.11.2021, sind keine Termine mehr verfügbar.<br/>
+Deswegen bieten wir zusätzlich am Freitag, dem 26.11.2021, von 9:00 bis 14:00 weitere Führungen durch die Schule an.
+</p>
 </div>
 ');
 define('EVENT_DATE','19.11.2021');

@@ -69,6 +69,14 @@ function getDayData()
         '12:10',
         '13:05',
     ),   'tag' => 'Freitag, 19.11.2021');
+
+    $days[] = array('timeslots'=>array(
+        '09:10',
+        '10:15',
+        '11:10',
+        '12:10',
+        '13:05',
+    ),   'tag' => 'Freitag, 26.11.2021');
     return $days;
 }
 

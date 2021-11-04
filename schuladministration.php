@@ -73,7 +73,7 @@ if($_GET['dl']=='true')
                         if($value)
                         {
                             if(is_numeric($value))
-                                $wsheet->getStyle(chr(65+$index).$alc)->getNumberFormat()->setFormatCode('@');
+                                $value.=' ';
                             $wsheet->setCellValue(chr(65+$index).$alc,$value);
                         }
                     }

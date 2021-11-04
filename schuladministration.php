@@ -13,6 +13,91 @@ if (!file_exists(ROOT . '/inc/configs/' . DOMAIN . '.config.inc.php'))
     die(json_encode(array('code' => -1, 'reason' => 'Invalid URL', 'dom' => DOMAIN)));
 require_once(ROOT . '/api/../inc/configs/' . DOMAIN . '.config.inc.php');
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+if($_GET['dl']=='true')
+{
+    //prepare general data
+    $redis = connectRedis();
+    $usertimes = array();
+    $users = $redis->keys(REDIS_PRESTRING . ':users:*');
+    foreach ($users as $u) {
+        $a = explode(':', $u);
+        $user = $a[3];
+        $field = $a[4];
+
+        if ($field == 'appointment') {
+            $appointment = explode(';', $redis->get($u));
+            $usertimes[$appointment[0]][$appointment[1]][] = $user;
+        }
+    }
+
+    $fields = getFields();
+    $everyheader = ['Uhrzeit'];
+    foreach ($fields as $fieldname => $fd)
+        $everyheader[]= $fieldname;
+
+    //prepare xls
+    $spreadsheet = new Spreadsheet();
+    //worksheets
+    $dd = getDayData();
+    $i = 0;
+    // each worksheet has this
+    foreach ($dd as $day => $ddd) {
+        $wsheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, $ddd['tag']);
+        $spreadsheet->addSheet($wsheet,  $i++);
+
+        //add nice header to sheet
+        $headerstyle = ['font' => ['bold' => true,'size' => 25]];
+        $fat = ['font' => ['bold' => true]];
+        $wsheet->setCellValue('A1',$ddd['tag']);
+        $wsheet->getStyle('A1')->applyFromArray($headerstyle);
+        $wsheet->getStyle('2:2')->applyFromArray($fat);
+
+        //header einrichten
+        $alc = 1; 
+        foreach($everyheader as $header)
+            $wsheet->setCellValue(chr(64+$alc++).'2', ucfirst($header)); //2 because line 1 is date
+
+        $alc = 3; //1=day,2=headers
+        foreach ($ddd['timeslots'] as $time) {
+            $wsheet->setCellValue('A'.($alc), $time);
+            $users = $usertimes[$day][$time];
+            if ($users) {
+                foreach ($users as $u) {
+                    $alc++;
+                    foreach ($fields as $fieldname => $fd) {
+                        $index = array_search($fieldname,$everyheader);
+                        $value = $redis->get(REDIS_PRESTRING.":users:$u:$fieldname");
+                        if($value)
+                            $wsheet->setCellValue(chr(65+$index).$alc,$value);
+                    }
+                }
+            }
+
+            $alc++;
+        }
+
+        foreach (range('B', $wsheet->getHighestColumn()) as $col) {
+            $wsheet->getColumnDimension($col)->setAutoSize(true);
+         }
+    }
+
+    //cleanup
+    $spreadsheet->setActiveSheetIndex(0);
+    $sheetIndex = $spreadsheet->getIndex(
+        $spreadsheet->getSheetByName('Worksheet')
+    );
+    $spreadsheet->removeSheetByIndex($sheetIndex);
+
+    $writer = new Xlsx($spreadsheet);
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment; filename="Fuehrungen-stand-'.date("d.m.y H:i").'.xlsx"');
+    $writer->save('php://output');
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -45,6 +130,8 @@ require_once(ROOT . '/api/../inc/configs/' . DOMAIN . '.config.inc.php');
     <div class="container">
 
         <h1><?php echo SCHOOLNAME; ?> </h1>
+
+        <a class="btn btn-primary" href="?dl=true"><i class="fa fa-download" aria-hidden="true"></i> Export zu Excel</a>
 
         <hr />
 

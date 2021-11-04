@@ -71,7 +71,7 @@ if($_GET['dl']=='true')
                         $index = array_search($fieldname,$everyheader);
                         $value = $redis->get(REDIS_PRESTRING.":users:$u:$fieldname");
                         if($value)
-                            $wsheet->setCellValue(chr(65+$index).$alc,$value);
+                            $wsheet->setCellValue(chr(65+$index).$alc,(is_numeric($value)?"'".$value:$value));
                     }
                 }
             }

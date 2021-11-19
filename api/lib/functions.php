@@ -174,3 +174,41 @@ function getFreeSlotsCount()
         'used_percent' => round(($used/$total)*100),
     ];
 }
+
+
+function sendMail($rcpt,$subject,$html,$text)
+{
+    $mail = new PHPMailer();
+
+    ob_start();
+
+    $mail->CharSet ="UTF-8";
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+    $mail->isSMTP();                                            // Send using SMTP
+    $mail->Host       = SMTP_HOST;                    // Set the SMTP server to send through
+    $mail->SMTPAuth   = (defined('SMTP_AUTH')?SMTP_AUTH:true);                                   // Enable SMTP authentication
+    $mail->Username   = SMTP_USER;                     // SMTP username
+    $mail->Password   = SMTP_PW;                               // SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+    $mail->Port       = (defined('SMTP_PORT')?SMTP_PORT:587);                                    // TCP port to connect to
+    if(defined('SMTP_EHLO_DOMAIN') && SMTP_EHLO_DOMAIN)
+        $mail->Hostname = SMTP_EHLO_DOMAIN;
+
+    //Recipients
+    $mail->setFrom(EMAIL, 'Schottenbastei IT');
+    $mail->addAddress($rcpt);     // Add a recipient
+
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = $subject;
+    $mail->Body    = $html;
+    $mail->AltBody = $text;
+
+    $mail->send();
+
+    $output = ob_get_clean();
+
+    addToLog("[EML] Email sent to $rcpt\tSubject: $subject");
+
+    return $output;
+}

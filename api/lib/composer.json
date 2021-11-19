@@ -1,6 +1,7 @@
 {
     "require": {
         "kreait/firebase-php": "^5.0",
-        "phpoffice/phpspreadsheet": "^1.19"
+        "phpoffice/phpspreadsheet": "^1.19",
+        "erusev/parsedown": "^1.7"
     }
 }

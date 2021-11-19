@@ -30,7 +30,7 @@ define('PAGE_HEADER_CARD2','/imgs/grg17-2.jpg');
 
 define('EVENT_DATE','23. Nov. 2021');
 define('APPOINTMENT_MINUTES',20);
-define('EVENT_MAXRES_PER_TIMESLOT',15);
+define('EVENT_MAXRES_PER_TIMESLOT',16);
 define('PLATFORM_ONLINE_FROM',strtotime("22-11-2021"));
 define('PLATFORM_ONLINE_TO',strtotime("22-12-2021"));
 define('RESERVATION_EXPIRE_SECONDS',3600);
@@ -44,9 +44,8 @@ define('REDIS_PRESTRING', 'tdot:brg1');
 //fields
 function getFields(){
     return array(
-        'person1'=>     array('type'=>'input','mandatory'=>true,'text'=>'Erwachsener 1',   'hint'=>'Name der zum Besuch angemeldeten Person'),
-        'person2'=>     array('type'=>'input','mandatory'=>false,'text'=>'Erwachsener 2',  'hint'=>'Name der zweiten zum Besuch angemeldeten Person'),
-        'person3'=>     array('type'=>'input','mandatory'=>false,'text'=>'Kind',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
+        'erwachsener'=>     array('type'=>'input','mandatory'=>true,'text'=>'Erwachsener',   'hint'=>'Name der zum Besuch angemeldeten Person'),
+        'kind'=>     array('type'=>'input','mandatory'=>false,'text'=>'Kind',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
         'phone'=>       array('type'=>'input','mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
         'email'=>       array('type'=>'input','mandatory'=>true,'text'=>'Email Adresse')
     );}
@@ -55,11 +54,29 @@ function getFields(){
 function getDayData()
 {
     $days[] = array('timeslots'=>array(
-        '09:00','09:30',
-        '10:00','10:30',
-        '11:00','11:30',
-        '12:00','12:30'
-    ),   'tag' => 'Dienstag, 23.11.2021');
+        '15:00','15:20',
+        '15:40','16:00',
+    ),   'tag' => 'Montag, 13.12.2021');
+
+    $days[] = array('timeslots'=>array(
+        '15:00','15:20',
+        '15:40','16:00',
+    ),   'tag' => 'Freitag, 17.12.2021');
+
+    $days[] = array('timeslots'=>array(
+        '15:00','15:20',
+        '15:40','16:00',
+    ),   'tag' => 'Mittwoch, 19.01.2022');
+
+    $days[] = array('timeslots'=>array(
+        '15:00','15:20',
+        '15:40','16:00',
+    ),   'tag' => 'Donnerstag, 20.01.2022');
+
+    $days[] = array('timeslots'=>array(
+        '15:00','15:20',
+        '15:40','16:00',
+    ),   'tag' => 'Freitag, 21.01.2022');
     return $days;
 }
 

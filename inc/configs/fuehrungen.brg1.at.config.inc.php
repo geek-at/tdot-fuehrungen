@@ -31,8 +31,8 @@ define('PAGE_HEADER_CARD2','/imgs/grg17-2.jpg');
 define('EVENT_DATE','23. Nov. 2021');
 define('APPOINTMENT_MINUTES',20);
 define('EVENT_MAXRES_PER_TIMESLOT',15);
-define('PLATFORM_ONLINE_FROM',strtotime("20-10-2020"));
-define('PLATFORM_ONLINE_TO',strtotime("22-11-2021"));
+define('PLATFORM_ONLINE_FROM',strtotime("22-11-2020"));
+define('PLATFORM_ONLINE_TO',strtotime("22-12-2021"));
 define('RESERVATION_EXPIRE_SECONDS',3600);
 
 //redis

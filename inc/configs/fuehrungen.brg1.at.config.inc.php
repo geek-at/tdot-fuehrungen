@@ -47,8 +47,8 @@ define('REDIS_PRESTRING', 'tdot:brg1');
 //fields
 function getFields(){
     return array(
-        'erwachsener'=>     array('type'=>'input','mandatory'=>true,'text'=>'Erwachsener',   'hint'=>'Name der zum Besuch angemeldeten Person'),
-        'kind'=>     array('type'=>'input','mandatory'=>false,'text'=>'Kind',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
+        'person1'=>     array('type'=>'input','mandatory'=>true,'text'=>'Erwachsener',   'hint'=>'Name der zum Besuch angemeldeten Person'),
+        'person2'=>     array('type'=>'input','mandatory'=>false,'text'=>'Kind',  'hint'=>'Name des Kindes (Nur 1 Erwachsener + 1 Kind erlaubt)'),
         'phone'=>       array('type'=>'input','mandatory'=>true,'text'=>'Telefonnummer' ,   'hint'=>'Handy oder Festnetz für etwaige Kontaktaufnahme'),
         'email'=>       array('type'=>'input','mandatory'=>true,'text'=>'Email Adresse')
     );}
@@ -80,6 +80,7 @@ function getDayData()
         '15:00','15:20',
         '15:40','16:00',
     ),   'tag' => 'Freitag, 21.01.2022');
+
     return $days;
 }
 

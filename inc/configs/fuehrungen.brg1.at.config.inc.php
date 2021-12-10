@@ -25,6 +25,8 @@ Für das Betreten des Schulhauses gilt für alle Besucherinnen und Besucher die 
 (Impfbestätigung, Nachweis über Genesung oder aktueller PCR-Test-Nachweis). Während
 des Aufenthaltes im Schulhaus ist das Tragen eines Mund-Nasen-Schutzes (Kinder) oder
 einer FFP2- Maske (Eltern) verpflichtend.
+
+<a class="btn btn-primary" href="https://www.brg1.at/schulprofil" target="_blank">Unser Schulprofil</a>
 ');
 define('PAGE_URL','https://fuehrungen.brg1.at');
 define('PAGE_HEADER_IMG','/imgs/brg1-h.jpg');

@@ -1,8 +1,8 @@
 Sehr geehrte Familie {LASTNAME},
 
-aufgrund des Lockdowns müssen wir Ihren Schulführungstermin am Dienstag, 23.11.2021 um {TIME} **STORNIEREN**.
+aufgrund der aktuellen Beschränkungen für Schulen müssen wir Ihren Schulführungstermin am Freitag, 17.12.2021 um {TIME} **STORNIEREN**.
 
-Wir werden in Kürze (spätestens Montag, 22. November) neue Termine auf unserer Plattform https://fuehrungen.brg1.at/ veröffentlichen.
+Wir haben allerdings neue Termine (17. und 18. Jänner) auf unserer Plattform https://fuehrungen.brg1.at/ veröffentlicht.
 
 Bitte verzeihen Sie die Unannehmlichkeiten.
 

@@ -18,7 +18,7 @@ $template = file_get_contents('cancellation.template.md');
 
 $fp = fopen('log.txt','a');
 
-$in = file('daten.csv');
+$in = file('daten.17.csv');
 foreach($in as $line)
 {
     $a = explode(';', trim($line));
@@ -28,7 +28,8 @@ foreach($in as $line)
         continue;
     }
     $name = trim($a[1]);
-    $email = trim($a[5]);
+    $email = trim($a[4]);
+    //$email = 'christian@haschek.at';
 
     $lastname = ucfirst(end(explode(' ', $name)));
 
@@ -37,7 +38,7 @@ foreach($in as $line)
     $mailtext = str_replace('{LASTNAME}', $lastname, $template);
     $mailtext = str_replace('{TIME}', $time, $mailtext);
 
-    //var_dump($mailtext);
+    //var_dump($mailtext);exit();
 
     $response = sendMail($email,'Schottenbastei - Stornierung des Termins am Tag der offenen Tür',$pd->text($mailtext),$mailtext);
 

@@ -18,10 +18,10 @@ define('SCHOOL_INFOTEXT','Tag der Offenen Tür - Schüler/innen führen in Grupp
 define('SCHOOL_CONTACT','');
 define('SCHOOL_NOTICE','
 Leider mussten wir den Tag der Offenen Tür absagen. Als Ersatz bieten wir 20-minütige
-Schulführungen am 13. Dez., 17.Dez., 19. Jän., 20. Jän. und 21. Jän. an. An den
+Schulführungen am 17.Jän., 18.Jän, 19. Jän., 20. Jän. und 21. Jän. an. An den
 Schulführungen kann man ausschließlich nach Voranmeldung über unsere Plattform
 teilnehmen.<br/>
-Für das Betreten des Schulhauses gilt für alle Besucherinnen und Besucher die 3-G-Regel
+Für das Betreten des Schulhauses gilt für alle Besucherinnen und Besucher die 2-G-Regel
 (Impfbestätigung, Nachweis über Genesung oder aktueller PCR-Test-Nachweis). Während
 des Aufenthaltes im Schulhaus ist das Tragen eines Mund-Nasen-Schutzes (Kinder) oder
 einer FFP2- Maske (Eltern) verpflichtend.
@@ -59,12 +59,12 @@ function getDayData()
     $days[] = array('timeslots'=>array(
         '15:00','15:20',
         '15:40','16:00',
-    ),   'tag' => 'Montag, 13.12.2021');
+    ),   'tag' => 'Montag, 17.01.2022');
 
     $days[] = array('timeslots'=>array(
         '15:00','15:20',
         '15:40','16:00',
-    ),   'tag' => 'Freitag, 17.12.2021');
+    ),   'tag' => 'Dienstag, 18.01.2022');
 
     $days[] = array('timeslots'=>array(
         '15:00','15:20',

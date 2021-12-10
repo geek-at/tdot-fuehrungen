@@ -18,7 +18,7 @@ define('SCHOOL_INFOTEXT','Tag der Offenen Tür - Schüler/innen führen in Grupp
 define('SCHOOL_CONTACT','');
 define('SCHOOL_NOTICE','
 <a class="btn btn-primary" href="https://www.brg1.at/schulprofil" target="_blank"><i class="fas fa-link"></i> Unser Schulprofil</a>
-<br/>
+<br/><br/>
 Leider mussten wir den Tag der Offenen Tür absagen. Als Ersatz bieten wir 20-minütige
 Schulführungen am 17.Jän., 18.Jän, 19. Jän., 20. Jän. und 21. Jän. an. An den
 Schulführungen kann man ausschließlich nach Voranmeldung über unsere Plattform
